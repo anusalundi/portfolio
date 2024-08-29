@@ -1,3 +1,3 @@
 # PORTFOLIO
 
-Here are individual tasks done in my courses
+Here are the tasks done in my courses and trainings.
