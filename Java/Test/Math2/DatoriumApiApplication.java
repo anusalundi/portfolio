@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class DatoriumApiApplicationTests {
     // Hey, I need a method, that gives me my fullname
@@ -15,21 +17,19 @@ class DatoriumApiApplicationTests {
         //Act -> Do some action, usually call a method
         var fullname = userService.getFullName("Oskars", "Klaumanis");
 
-        //Assert -> Test weather or not the result is correct
+        //Assert -> Test whether or not the result is correct
         Assert.isTrue(fullname.equals("Oskars Klaumanis"), "Hey, the name should be with a space inbetween and should contain both name and surname");
     }
 
     @Test
-    void WHEN_Number1Is85AndNumber2Is53_THEN_Result_0() {
-        var mathService = new MathService();
-        var numbersSum = mathService.sum(85, 53);
-        Assert.isTrue(numbersSum == 0, "Hey, the sum should be 0 because 85 + 53 exceeds 100");
+    public void testSumWithinLimit() {
+        MathService mathService = new MathService();
+        assertEquals(50, mathService.sum(20, 30));
     }
 
     @Test
-    void WHEN_Number1Is40AndNumber2Is50_THEN_Result_90() {
-        var mathService = new MathService();
-        var numbersSum = mathService.sum(40, 50);
-        Assert.isTrue(numbersSum == 90, "The sum should be 90 because 40 + 50 does not exceed 100");
+    public void testSumExceedsLimit() {
+        MathService mathService = new MathService();
+        assertEquals(0, mathService.sum(60, 50));
     }
-}
+} 
