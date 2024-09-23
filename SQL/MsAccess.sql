@@ -1,0 +1,5 @@
+CREATE TABLE Isik (isik_id INTEGER NOT NULL,
+perenimi VARCHAR(60) NOT NULL,
+CONSTRAINT pk_isik PRIMARY KEY (isik_id));
+
+DROP TABLE Isik;
