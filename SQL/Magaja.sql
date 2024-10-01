@@ -1,8 +1,10 @@
+--1--
 SELECT 231+4568 AS vastus1, 
        987/54 AS vastus2, 
        (332-25)*456 AS vastus3, 
        2^3 AS vastus4;
 
+--2--
 SELECT 231+4568 AS vastus FROM DummyTable
 UNION ALL
 SELECT 987/54 AS vastus FROM DummyTable
@@ -11,26 +13,32 @@ SELECT (332-25)*456 AS vastus FROM DummyTable
 UNION ALL
 SELECT 2^3 AS vastus FROM DummyTable;
 
+--3--
 SELECT * FROM Magaja;
 
 SELECT magaja_id, synni_aeg, aadress, telefon, eesnimi, perenimi
 FROM Magaja;
 
+--4--
 SELECT ase_id, pikkus/100 AS pikkus_meetrites
 FROM Ase;
 
+--5--
 SELECT magaja_id, eesnimi, perenimi
 FROM Magaja
 ORDER BY perenimi ASC;
 
+--6--
 SELECT *
 FROM Magaja
 ORDER BY perenimi DESC, synni_aeg ASC;
 
+--7--
 SELECT ase_id, nimi
 FROM Ase
 Order BY pikkus;
 
+--8--
 SELECT magaja_id, (eesnimi & ' ' & perenimi) AS nimi
 FROM Magaja;
 
@@ -147,6 +155,32 @@ WHERE (pikkus>270 AND laius<=180) OR (pikkus<=270 AND laius>180);
 SELECT DISTINCT UCase(perenimi) AS [Perenimi suurtähtedega]
 FROM Magaja;
 
+--26. perenimi on "Vaarikas"--
+SELECT *
+FROM Magaja
+WHERE perenimi='vaarikas';
+
+--27. vabade asemete arv--
+SELECT Count(*) AS vabade_arv
+FROM Ase
+WHERE vaba=TRUE;
+
+SELECT Count(ase_id) AS vabade_arv
+FROM Ase
+WHERE vaba=TRUE;
+
+--28--
+SELECT Round(Avg(Date()-synni_aeg)) AS keskmine_vanus_päevades
+FROM Magaja
+WHERE sugu='M';
+
 --29. keskmine vanus aastates--
 SELECT Avg(Date()-synni_aeg)/365.25 AS keskmine_vanus_aastates
 FROM Magaja;
+
+--30. 2000. aastal alanud magamised--
+SELECT *
+FROM Magamine
+WHERE algus >= #2000-01-01 00:00:00# AND algus < #2001-01-01
+00:00:00#;
+
