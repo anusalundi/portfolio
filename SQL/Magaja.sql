@@ -1,3 +1,4 @@
+--MS Access--
 --1--
 SELECT 231+4568 AS vastus1, 
        987/54 AS vastus2, 
@@ -184,3 +185,88 @@ FROM Magamine
 WHERE algus >= #2000-01-01 00:00:00# AND algus < #2001-01-01
 00:00:00#;
 
+--31. meessoost magajate summaarne vanus--
+SELECT Sum(Date()-synni_aeg) AS koguvanus_paevades
+FROM Magaja
+WHERE sugu='M'; 
+
+--32. lühema ja pikema aseme pikkus ja nende pikkuste vahe--
+SELECT Min(pikkus) AS lyhim, Max(pikkus) AS pikim, (Max(pikkus)-
+Min(pikkus)) AS vahe
+FROM Ase;
+
+--33. magajate arv kelle eesnimi on määratud--
+SELECT Count(eesnimi) AS eesnimega_isikute_arv
+FROM Magaja;
+
+SELECT Count(*) AS eesnimega_isikute_arv
+FROM Magaja
+WHERE eesnimi IS NOT NULL;
+
+--34. perekonnanimede nimekiri ja sorteeri see kasvavas järjekorras--
+SELECT TOP 2 perenimi  --top 2--
+FROM Magaja
+WHERE perenimi IS NOT NULL
+ORDER BY perenimi;
+
+SELECT TOP 25 PERCENT perenimi  --25%--
+FROM Magaja
+WHERE perenimi IS NOT NULL
+ORDER BY perenimi; 
+
+--35. asemed, mille pikkus on paarisarv--
+SELECT ase_id, pikkus, 'Pikkus on paarisarv' AS kommentaar
+FROM Ase
+WHERE (pikkus mod 2)=0;
+
+--36. magajad, kelle perekonnanimi sisaldab sümbolit v nubmrit--
+SELECT *
+FROM Magaja
+WHERE perenimi LIKE '%[*]%' OR perenimi LIKE '%[?]%' OR perenimi LIKE
+'%[[]%' OR perenimi LIKE '%[%]%' OR perenimi LIKE '%[_]%' OR perenimi
+LIKE '%]%' OR perenimi LIKE '%[0-9]%';
+
+--37. Magamine magaja numbrilise identifikaatori, magamise alguse aja, kestuse ja magamise lõpu aja--
+SELECT magaja_id, algus, kestus, DateAdd('n', kestus, algus) AS lopp
+FROM Magamine
+WHERE algus IS NOT NULL AND kestus IS NOT NULL;
+
+--38. 'M' = 'Mees', 'N' = 'Naine'--
+SELECT magaja_id, perenimi, iif(sugu='M','Mees',iif(sugu='N','Naine','')) AS
+s
+FROM Magaja; 
+
+--39. magajate id ja aadressid. Kui aadressi pole, siis "Aadress teadmata"
+SELECT magaja_id, Nz(aadress, 'Aadress teadmata') AS aadr
+FROM Magaja;
+
+SELECT magaja_id, aadress
+FROM Magaja
+WHERE aadress IS NOT NULL
+UNION SELECT magaja_id, 'Aadress teadmata'
+FROM Magaja
+WHERE aadress IS NULL; 
+
+--40. random jrk--
+SELECT *
+FROM Magaja
+ORDER BY Rnd(magaja_id);
+
+--41. sorteeri perenimed teise ja kolmanda tähe järgi--
+SELECT perenimi
+FROM Magaja
+ORDER BY Mid(perenimi, 2, 2);
+
+--42. magajate arv, sündinud 1991 või hiljem ja magajate arv, 1960 või varem--
+SELECT Count(iif(Year(synni_aeg)>1990,synni_aeg,NULL)) AS noorte_arv,
+Count(iif(Year(synni_aeg)<=1960,synni_aeg,NULL)) AS vanade_arv
+FROM Magaja;
+
+SELECT Count(*) AS noorte_arv
+FROM Magaja
+WHERE Year(synni_aeg)>1990;
+SELECT Count(*) AS vanade_arv
+FROM Magaja
+WHERE Year(synni_aeg)<=1960;
+
+--43. käesoleval kuul alanud magamiste arv--
