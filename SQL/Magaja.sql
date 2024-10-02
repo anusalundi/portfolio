@@ -270,3 +270,23 @@ FROM Magaja
 WHERE Year(synni_aeg)<=1960;
 
 --43. käesoleval kuul alanud magamiste arv--
+SELECT Count(*) AS arv
+FROM Magamine
+WHERE Month(algus)=Month(Date());
+
+--44. asemed, mille pikkus ja laius ei lange kokku--
+SELECT *
+FROM Ase
+WHERE ((pikkus <>laius) OR (pikkus IS NULL) OR (laius IS NULL)) AND
+NOT (pikkus IS NULL AND laius IS NULL);
+
+--45. asemed, mis on vähem kui 200 cm või rohkem kui 230 cm pikad--
+SELECT
+Count(iif(pikkus<200,1,NULL)) AS lühikeste_arv,
+Count(iif(pikkus>230,1,NULL)) AS pikkade_arv
+FROM Ase;
+
+--46. magajate eesnimed, kordused eemaldatud, suurtähtedega, tähestikulisele järjekorrale vastupidi--
+SELECT DISTINCT Ucase(eesnimi) AS eesnimi
+FROM Magaja
+ORDER BY Ucase(eesnimi) DESC; 
