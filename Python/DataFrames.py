@@ -84,3 +84,30 @@ df.iloc[1:3, 1:3].to_json()
 df.iloc[1:3, 1:3].to_csv('test.csv')
 
 df.loc[df['Population'] > 70]
+
+## Conditional selection (boolean arrays)
+df
+df['Population'] > 70
+df.loc[df['Population'] > 70]
+df.loc[df['Population'] > 70, 'Population']
+df.loc[df['Population'] > 70, ['Population', 'GDP']]
+
+## Dropping stuff
+df.drop('Canada')
+df.drop(['Canada', 'Japan'])
+df.drop(columns=['Population', 'HDI'])
+df.drop(['Italy', 'Canada'], axis=0)
+df.drop(['Population', 'HDI'], axis=1)
+df.drop(['Population', 'HDI'], axis=1)
+df.drop(['Population', 'HDI'], axis='columns')
+df.drop(['Canada'], axis='rows')
+
+## Operations
+df[['Population', 'GDP']]
+df[['Population', 'GDP']] / 100
+
+crisis = pd.Series([-1_000_000, -0.3], index=['GDP', 'HDI'])
+crisis
+
+df[['GDP', 'HDI']]
+df[['GDP', 'HDI']] + crisis
