@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class DatoriumApiApplication {
 
 	public static void main(String[] args) throws Exception {
+
 		var cityService = new CityService(new CityRepository());
 		var randomCity = cityService.getRandomCity();
 		System.out.println(randomCity.getName());
 
 		//var userService = new UserService();
 		//System.out.println(userService.getFullName("Oskars", "Klaumanis"));
-		//SpringApplication.run(DatoriumApiApplication.class, args);
+		SpringApplication.run(DatoriumApiApplication.class, args);
 	}
 }
