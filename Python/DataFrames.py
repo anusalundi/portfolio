@@ -111,3 +111,39 @@ crisis
 
 df[['GDP', 'HDI']]
 df[['GDP', 'HDI']] + crisis
+
+## Modifying DataFrames
+langs = pd.Series(
+    ['French', 'German', 'Italian'],
+    index=['France', 'Germany', 'Italy'],
+    name='Language'
+)
+
+df['Language'] = langs
+df
+
+## Replacing values per column
+df['Language'] = 'English'
+df
+
+## Renaming Columns
+df.rename(
+    columns={
+        'HDI': 'Human Development Index',
+        'Anual Popcorn Consumption': 'APC'
+    }, index={
+        'United States': 'USA',
+        'United Kingdom': 'UK',
+        'Argentina': 'AR'
+    })
+
+df.rename(index=str.upper)
+df.rename(index=lambda x: x.lower())
+df.index = df.index.str.title()
+df
+
+## Dropping columns
+df.drop(columns='Language', inplace=True)
+df
+df.reset_index()
+df.set_index('Population')
