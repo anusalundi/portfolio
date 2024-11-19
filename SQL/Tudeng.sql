@@ -14,6 +14,9 @@ AND kommentaar IS NOT NULL
 AND (punkte BETWEEN 1 AND 2 OR punkte>3)
 ORDER BY punkte, nimetus DESC;
 
+SELECT Count(*) AS arv, Round(Avg(punkte), 1) AS keskmine
+FROM Päring1 ;
+
 --PostgreSQL--
 SELECT aine_kood, Upper(nimetus) AS NIMETUS, kommentaar, punkte
 FROM Aine
