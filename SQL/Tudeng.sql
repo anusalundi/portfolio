@@ -28,6 +28,16 @@ FROM Eksam
 WHERE tulemus IN (4,5))
 ORDER BY Tudeng.perenimi, Aine.nimetus;
 
+SELECT Oppimine.*, Tudeng.eesnimi & ' ' & Tudeng.perenimi AS tudengi_nimi, Aine.nimetus AS aine_nimetus, Oppejoud.perenimi AS oppejou_perenimi
+FROM ((Oppimine INNER JOIN Tudeng ON Oppimine.tudeng=Tudeng.tudkood)
+INNER JOIN Aine ON Oppimine.aine=Aine.aine_kood)
+INNER JOIN Oppejoud ON Oppimine.oppejoud=Oppejoud.oppejou_kood
+WHERE Year(oppim_algus)=1998
+AND Oppimine.oppimine = ANY (SELECT oppimine
+FROM Eksam
+WHERE tulemus IN (4,5))
+ORDER BY Tudeng.perenimi, Aine.nimetus;
+
 --PostgreSQL--
 SELECT aine_kood, Upper(nimetus) AS NIMETUS, kommentaar, punkte
 FROM Aine
