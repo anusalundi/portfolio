@@ -38,6 +38,15 @@ FROM Eksam
 WHERE tulemus IN (4,5))
 ORDER BY Tudeng.perenimi, Aine.nimetus;
 
+CREATE TABLE Auto (
+    Auto_ID AUTOINCREMENT NOT NULL,
+    Mark_ID SMALLINT DEFAULT 1 NOT NULL,
+    registri_nr VARCHAR(10) NOT NULL,
+    CONSTRAINT pk_auto PRIMARY KEY (Auto_ID),
+    CONSTRAINT fk_auto_mark_id FOREIGN KEY (Mark_ID) REFERENCES Mark (Mark_ID) ON UPDATE CASCADE,
+    CONSTRAINT ak_auto_registri_nr UNIQUE(registri_nr)
+);
+
 --PostgreSQL--
 SELECT aine_kood, Upper(nimetus) AS NIMETUS, kommentaar, punkte
 FROM Aine
