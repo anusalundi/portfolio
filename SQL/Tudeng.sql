@@ -17,6 +17,17 @@ ORDER BY punkte, nimetus DESC;
 SELECT Count(*) AS arv, Round(Avg(punkte), 1) AS keskmine
 FROM Päring1 ;
 
+SELECT Oppimine.*, Tudeng.eesnimi & ' ' & Tudeng.perenimi AS tudengi_nimi, Aine.nimetus AS aine_nimetus, Oppejoud.perenimi AS oppejou_perenimi
+FROM Oppimine, Tudeng, Aine, Oppejoud
+WHERE Oppimine.tudeng=Tudeng.tudkood
+AND Oppimine.aine=Aine.aine_kood
+AND Oppimine.oppejoud=Oppejoud.oppejou_kood
+AND Year(oppim_algus)=1998
+AND Oppimine.oppimine IN (SELECT oppimine
+FROM Eksam
+WHERE tulemus IN (4,5))
+ORDER BY Tudeng.perenimi, Aine.nimetus;
+
 --PostgreSQL--
 SELECT aine_kood, Upper(nimetus) AS NIMETUS, kommentaar, punkte
 FROM Aine
