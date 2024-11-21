@@ -65,7 +65,7 @@ UNION SELECT lopu_aeg
 FROM Reserveerimine
 ORDER BY kuupäev DESC;
 
-SELECT külalise_nr, Trim(eesnimi & ' ' & perenimi)
+SELECT külalise_nr, Trim(eesnimi & ' ' & perenimi) AS külalise_nimi
 FROM Reserveerimine
 WHERE hotelli_nr IN (SELECT hotelli_nr
 FROM Hotell
