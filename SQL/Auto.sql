@@ -22,3 +22,6 @@ ADD CONSTRAINT chk_mark_mark CHECK (mark<>' ');
 
 ALTER TABLE Auto
 ADD CONSTRAINT chk_auto_mark_id_registri_nr CHECK (NOT (Mark_ID=1) OR registri_nr LIKE '00%');
+
+ALTER TABLE Auto
+DROP CONSTRAINT chk_auto_mark_id_registri_nr;
