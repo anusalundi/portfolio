@@ -52,3 +52,5 @@ ADD CONSTRAINT chk_mark_mark CHECK (mark<>' ');
 
 ALTER TABLE Auto
 ADD CONSTRAINT chk_auto_mark_id_registri_nr CHECK (NOT (Mark_ID=1) OR registri_nr LIKE '00%');
+
+INSERT INTO Mark (Mark_ID, mark) VALUES (1, 'Volvo');
