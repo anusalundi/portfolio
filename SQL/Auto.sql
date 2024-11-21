@@ -13,3 +13,12 @@ CREATE TABLE Auto (
     CONSTRAINT fk_auto_mark_id FOREIGN KEY (Mark_ID) REFERENCES Mark (Mark_ID) ON UPDATE CASCADE,
     CONSTRAINT ak_auto_registri_nr UNIQUE(registri_nr)
 );
+
+ALTER TABLE Mark
+ADD CONSTRAINT chk_mark_mark_id CHECK (Mark_ID>0);
+
+ALTER TABLE Mark
+ADD CONSTRAINT chk_mark_mark CHECK (mark<>' ');
+
+ALTER TABLE Auto
+ADD CONSTRAINT chk_auto_mark_id_registri_nr CHECK (NOT (Mark_ID=1) OR registri_nr LIKE '00%');
