@@ -1,3 +1,4 @@
+--MS Access--
 CREATE TABLE Mark (
     Mark_ID SMALLINT NOT NULL,
     mark VARCHAR (50) NOT NULL,
@@ -25,3 +26,5 @@ ADD CONSTRAINT chk_auto_mark_id_registri_nr CHECK (NOT (Mark_ID=1) OR registri_n
 
 ALTER TABLE Auto
 DROP CONSTRAINT chk_auto_mark_id_registri_nr;
+
+--PostgreSQL--
