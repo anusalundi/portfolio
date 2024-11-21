@@ -38,5 +38,3 @@ SELECT M.magaja_id, eesnimi & ' ' & perenimi AS magaja_nimi, A.ase_id,
 nimi AS aseme_nimi, algus, kestus, Ma.kommentaar
 FROM Magamine Ma, Magaja M, Ase A
 WHERE (Ma.magaja_id=M.magaja_id) AND (Ma.ase_id=A.ase_id); 
-
---5. ühenda magaja ja mõõtmiste andmed--
