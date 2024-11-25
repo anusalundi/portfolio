@@ -69,4 +69,14 @@ SELECT külalise_nr, Trim(eesnimi & ' ' & perenimi) AS külalise_nimi
 FROM Reserveerimine
 WHERE hotelli_nr IN (SELECT hotelli_nr
 FROM Hotell
-WHERE nimi='Viru);
+WHERE nimi='Viru');
+
+SELECT külalise_nr, Trim(eesnimi & ' ' & perenimi) AS külalise_nimi
+FROM Külaline
+WHERE külalise_nr NOT IN(
+SELECT külalise_nr
+FROM Reserveerimine
+WHERE hotelli_nr IN (SELECT hotelli_nr
+FROM Hotell
+WHERE nimi='Viru'))
+ORDER BY perenimi, külalise_nr;
