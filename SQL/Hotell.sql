@@ -94,8 +94,10 @@ FROM Reserveerimine
 WHERE hotelli_nr = ANY (SELECT hotelli_nr
 FROM Hotell
 WHERE nimi='Viru')
-GROUP BY Year(alguse_aeg);
-
-SELECT *
-FROM Päring3
-WHERE arv=(SELECT Max(arv) AS m FROM Päring3);
+GROUP BY Year(alguse_aeg)
+HAVING Count (*)>=ALL(SELECT Count(*) AS arv
+FROM Reserveerimine
+WHERE hotelli_nr = ANY (SELECT hotelli_nr
+FROM Hotell
+WHERE nimi='Viru')
+GROUP BY Year(alguse_aeg));
