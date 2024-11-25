@@ -88,3 +88,10 @@ FROM Reserveerimine AS R, Hotell AS H
 WHERE R.hotelli_nr=H.hotelli_nr
 AND H.linn='Tallinn'
 AND lopu_aeg-alguse_aeg>2;
+
+SELECT Year(alguse_aeg) AS aasta, Count(*) AS arv
+FROM Reserveerimine
+WHERE hotelli_nr = ANY (SELECT hotelli_nr
+FROM Hotell
+WHERE nimi='Viru')
+GROUP BY Year(alguse_aeg);
