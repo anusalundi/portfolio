@@ -101,3 +101,12 @@ WHERE hotelli_nr = ANY (SELECT hotelli_nr
 FROM Hotell
 WHERE nimi='Viru')
 GROUP BY Year(alguse_aeg));
+
+SELECT Külaline.külalise_nr, Trim(eesinimi & ' ' & perenimi) AS külalise_nimi
+FROM Külaline INNER JOIN Reserveerimine ON Külaline.külalise_nr=Reserveerimine.külalise_nr
+GROUP BY Külaline.külalise_nr, Trim(eesinimi & ' ' & perenimi)
+HAVING Count(*)> (SELECT Avg(arv) AS keskmine
+FROM (SELECT Count(*) AS arv
+FROM Reserveerimine
+GROUP BY külalise_nr) AS res_arv)
+ORDER BY Külaline.külalise_nr;
