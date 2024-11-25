@@ -110,3 +110,16 @@ FROM (SELECT Count(*) AS arv
 FROM Reserveerimine
 GROUP BY külalise_nr) AS res_arv)
 ORDER BY Külaline.külalise_nr;
+
+SELECT *
+FROM (SELECT K.külalise_nr, perenimi, Month(alguse_aeg) AS alguse_kuu, Count(*)
+AS arv
+FROM Külaline AS K, Reserveerimine AS R
+WHERE K.Külalise_nr=R.külalise_nr
+GROUP BY K.külalise_nr, perenimi, Month(alguse_aeg)) AS Rk
+WHERE arv = (SELECT Max(arv) AS maks
+FROM (SELECT külalise_nr, Month(alguse_aeg) AS alguse_kuu, Count(*)
+AS arv
+FROM Reserveerimine AS R
+GROUP BY külalise_nr, Month(alguse_aeg)) AS Res_kuu
+WHERE Rk.külalise_nr=Res_kuu.külalise_nr);
