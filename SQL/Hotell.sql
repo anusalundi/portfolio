@@ -80,3 +80,11 @@ WHERE hotelli_nr IN (SELECT hotelli_nr
 FROM Hotell
 WHERE nimi='Viru'))
 ORDER BY perenimi, külalise_nr;
+
+SELECT Round (Avg (lopu_aeg-alguse_aeg),2) AS pikkus,
+Min (lopu_aeg-alguse_aeg) AS min_pikkus,
+Max (lopu_aeg-alguse_aeg) AS max_pikkus
+FROM Reserveerimine AS R, Hotell AS H
+WHERE R.hotelli_nr=H.hotelli_nr
+AND H.linn='Tallinn'
+AND lopu_aeg-alguse_aeg>2;
