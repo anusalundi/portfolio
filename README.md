@@ -8,7 +8,7 @@ an experienced graphic designer who, wanting more exciting challenges, has made 
 If you want to leave me feedback, make an interesting offer or contact me for any other reason, you can do it at 
 
 <a href="https://www.linkedin.com/in/anu-rand-salundi/">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20">
 </a>
 
  or :email: anusalundi@gmail.com
