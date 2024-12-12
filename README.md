@@ -9,4 +9,4 @@ If you want to leave me feedback, make an interesting offer or contact me for an
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30">
 </a>
 
- https://www.linkedin.com/in/anu-rand-salundi/ or :email: anusalundi@gmail.com
+ or :email: anusalundi@gmail.com
