@@ -9,6 +9,6 @@ If you want to leave me feedback, make an interesting offer or contact me for an
 
   <a href="https://www.linkedin.com/in/anu-rand-salundi/">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="16">
-  </a>
+  </a> https://www.linkedin.com/in/anu-rand-salundi/
 
 :email: anusalundi@gmail.com
