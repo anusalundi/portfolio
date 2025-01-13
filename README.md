@@ -12,3 +12,7 @@ If you want to leave me feedback, make an interesting offer or contact me for an
   </a>  https://www.linkedin.com/in/anu-rand-salundi/
 
 :email: anusalundi@gmail.com
+
+Here are some examples of graphs I created with Python:
+
+![Nasdaq Data Pivot table]([relative/path/to/image.png](https://github.com/anusalundi/portfolio/blob/8ed850b6735289db6f8df4562f31681cd850bb84/Data%20Analysis/Nasdaq3.png))
