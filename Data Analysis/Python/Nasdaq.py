@@ -19,7 +19,7 @@ pivot = pd.pivot_table(
 
 print(pivot)
 
-![image alt](https://github.com/user-attachments/assets/ced76158-560a-482e-88e9-45e3d10490a7)
+![image alt](https://github.com/anusalundi/portfolio/blob/ab2e6f0fea6531f4010b24ffcaadff337a29b1f2/1.png)
 
 https://github.com/anusalundi/portfolio/issues/1#issue-2783889679
 
