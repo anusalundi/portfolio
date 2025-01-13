@@ -15,4 +15,4 @@ If you want to leave me feedback, make an interesting offer or contact me for an
 
 Here are some examples of graphs I created with Python:
 
-![Nasdaq Data Pivot table]([relative/path/to/image.png](https://github.com/anusalundi/portfolio/blob/8ed850b6735289db6f8df4562f31681cd850bb84/Data%20Analysis/Nasdaq3.png))
+![Nasdaq Data Pivot table](https://github.com/anusalundi/portfolio/blob/main/Data%20Analysis/Nasdaq3.png)
