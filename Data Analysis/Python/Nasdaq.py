@@ -19,6 +19,8 @@ pivot = pd.pivot_table(
 
 print(pivot)
 
+![image alt](https://github.com/anusalundi/portfolio/issues/1#issue-2783889679)
+
 https://github.com/anusalundi/portfolio/issues/1#issue-2783889679
 
 ![1](https://github.com/user-attachments/assets/ced76158-560a-482e-88e9-45e3d10490a7)
