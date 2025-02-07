@@ -18,5 +18,3 @@ Here are some examples of graphs I created with Python:
 ![Nasdaq Data Pivot table](https://github.com/anusalundi/portfolio/blob/main/Data%20Analysis/Nasdaq3.png)
 
 ![Nasdaq Data Bar Plot table](https://github.com/anusalundi/portfolio/blob/main/Data%20Analysis/Nasdaq1.png)
-
-![Nasdaq Data Pie Chart table](https://github.com/anusalundi/portfolio/blob/main/Data%20Analysis/Nasdaq2.png)
