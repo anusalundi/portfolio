@@ -13,7 +13,7 @@ If you want to leave me feedback, make an interesting offer or contact me for an
 
 :email: anusalundi@gmail.com
 
-Here are some examples of graphs I created with Python:
+Here are some examples of graphs I created with Python (Data used here: https://nasdaqcsd.com/statistics/estonia/en/capitalization/auc/?year_month=2024-06&market=EE&currency=EUR):
 
 ![Nasdaq Data Bar Plot table](https://github.com/anusalundi/portfolio/blob/main/Data%20Analysis/Nasdaq1.png)
 
