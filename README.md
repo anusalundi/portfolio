@@ -16,3 +16,5 @@ If you want to leave me feedback, make an interesting offer or contact me for an
 Here are some examples of graphs I created with Python:
 
 ![Nasdaq Data Bar Plot table](https://github.com/anusalundi/portfolio/blob/main/Data%20Analysis/Nasdaq1.png)
+
+![Nasdaq Data Line Chart](https://github.com/anusalundi/portfolio/blob/main/Data%20Analysis/Nasdaq2.png)
